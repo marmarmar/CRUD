@@ -24,3 +24,8 @@ class Product:
             for row in data:
                 product_list.append(cls(row[0], row[1], row[2], row[3]))
         return product_list
+
+    @classmethod
+    def add(cls, name, description, price):
+        query = "INSERT INTO socks VALUES (?, ?, ?, ?)"
+        Database.connect_db(query, None, name, description, price)

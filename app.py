@@ -10,12 +10,16 @@ def index():
     socks_list = Product.list_products()
     return render_template("index.html", socks=socks_list)
 
+
 @app.route('/add', methods=['GET', 'POST'])
 def add_socks():
     if request.method == 'POST':
+        name = request.form['name']
+        description = request.form['description']
+        price = request.form['price']
+        Product.add(name, description, price)
         return redirect(url_for('index'))
     return render_template("form.html")
-
 
 
 if __name__ == "__main__":
