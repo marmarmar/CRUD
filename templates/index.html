@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Socks Manager</title>
+</head>
+<body>
+    <h1>Read Products</h1>
+    <a href="{{ url_for('add_socks') }}">Add</a>
+    {% if not socks %}
+    <h3>There are no socks!</h3>
+    {% else %}
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+        {% for item in socks %}
+        <tr>
+            <td>item.id</td>
+            <td>item.name</td>
+            <td>item.description</td>
+            <td>item.price</td>
+            <td> </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>
